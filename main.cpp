@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int main(char args[])
+int main()
 {
 	cout << "start v.0.0.1" << endl;
 
