@@ -1,6 +1,9 @@
 #include <iostream>
+#include "database.h"
 
 using namespace std;
+
+Database db = Database();
 
 int main()
 {
