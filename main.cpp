@@ -10,10 +10,19 @@ int main()
 	cout << "version v.0.0.1" << endl;
 	cout << "start app" << endl;
 
-	for(int a = 0; a < 10; a++)
-	{
-		cout << "val: " << int(a) << endl;
-	}
+	db.Add(10);
+	db.Add(20);
+	db.Add(30);
+	db.Add(99);
+	db.Add(55);
+
+	db.Add(77);
+	db.Add(1);
+	db.Add(2);
+	db.Add(3);
+	db.Add(4);
+
+	db.PrintAll();
 
 	return 0;
 }
