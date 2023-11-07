@@ -2,6 +2,10 @@
 #include "database.h"
 #include <curl/curl.h>
 
+#include "simdjson/simdjson.h"
+
+using namespace simdjson;
+
 using namespace std;
 
 Database db = Database();
@@ -43,7 +47,7 @@ void doGet()
 {
   	CURL *curl;
   	CURLcode res;
-  	std::string readBuffer;
+  	string readBuffer;
 	
 	curl = curl_easy_init();
   	
@@ -55,6 +59,11 @@ void doGet()
     	res = curl_easy_perform(curl);
     	curl_easy_cleanup(curl);
 
-    	std::cout << readBuffer << std::endl;
+    	cout << readBuffer << std::endl;
+
+		ondemand::parser parser;
+    	ondemand::document doc = parser.iterate(readBuffer);
+
+    	cout << "PRICE IS: " << doc["price"] << endl;
   	}
 }
