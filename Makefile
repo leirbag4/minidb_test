@@ -1,4 +1,4 @@
 
 compile:
 	clear
-	g++ *.cpp -o app && ./app
+	g++ *.cpp -o app -lcurl && ./app
