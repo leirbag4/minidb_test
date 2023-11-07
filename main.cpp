@@ -7,7 +7,7 @@ Database db = Database();
 
 int main()
 {
-	cout << "version v.0.0.1" << endl;
+	cout << "version v.0.0.2" << endl;
 	cout << "start app" << endl;
 
 	db.Add(10);
