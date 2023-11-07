@@ -1,5 +1,4 @@
 
 compile:
 	clear
-	g++ *.cpp -o app
-
+	g++ *.cpp -o app && ./app

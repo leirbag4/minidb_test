@@ -14,9 +14,9 @@ class Database
 		void PrintAll();
 
 	private:
+		const int SIZE = 10;
 		int index = 0;
 		uint8_t BUFFER[10];
-		const int SIZE = 10;
 };
 
 #endif
