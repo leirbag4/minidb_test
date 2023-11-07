@@ -1,4 +1,4 @@
 
 compile:
 	clear
-	g++ *.cpp simdjson/simdjson.cpp -o app -lcurl && ./app
+	g++ *.cpp simdjson/simdjson.o -o app -lcurl && ./app
