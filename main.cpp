@@ -10,7 +10,7 @@ using namespace std;
 
 Database db = Database();
 
-void doGet();
+void doGet(string url);
 
 static size_t WriteCallback(void *contents, size_t size, size_t nmemb, void *userp)
 {
@@ -23,7 +23,7 @@ int main()
 	cout << "version v.0.0.2" << endl;
 	cout << "start app" << endl;
 
-	db.Add(10);
+	/*db.Add(10);
 	db.Add(20);
 	db.Add(30);
 	db.Add(99);
@@ -35,29 +35,29 @@ int main()
 	db.Add(3);
 	db.Add(4);
 
-	db.PrintAll();
+	db.PrintAll();*/
 
 
-	doGet();
-
+	doGet("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT");
+	doGet("https://api.mexc.com/api/v3/ticker/price?symbol=KASUSDT");
 	return 0;
 }
 
-void doGet()
+void doGet(string url)
 {
   	CURL *curl;
   	CURLcode res;
   	string readBuffer;
 	
 	curl = curl_easy_init();
-  	
-  	if(curl) 
+ 	
+	if(curl) 
   	{
-    	curl_easy_setopt(curl, CURLOPT_URL, "https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT");
+    	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
     	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, WriteCallback);
     	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &readBuffer);
     	res = curl_easy_perform(curl);
-    	curl_easy_cleanup(curl);
+	curl_easy_cleanup(curl);
 
     	cout << readBuffer << std::endl;
 
